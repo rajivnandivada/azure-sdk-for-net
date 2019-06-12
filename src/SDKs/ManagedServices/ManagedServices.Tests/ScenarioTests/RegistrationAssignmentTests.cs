@@ -82,14 +82,11 @@ namespace ManagedServices.Tests.ScenarioTests
                     Assert.Single(registrationAssignemntResponses);                    
 
                     //5. Delete registration assignment
-                    registrationAssignemntResponse = testFixture.ManagedServicesClient.RegistrationAssignments
+                    testFixture.ManagedServicesClient.RegistrationAssignments
                         .Delete(
                         scope: ManagedServicesTestUtilities.scope,
                         apiVersion: ManagedServicesTestUtilities.apiVersion,
                         registrationAssignmentId: ManagedServicesTestUtilities.registrationAssignmentId);
-
-                    Assert.NotNull(registrationAssignemntResponse);
-                    Assert.Equal(ManagedServicesTestUtilities.registrationAssignmentId, registrationAssignemntResponse.Name);
 
                     //6. Get registration assignment collections
                     registrationAssignemntResponses = testFixture.ManagedServicesClient.RegistrationAssignments
